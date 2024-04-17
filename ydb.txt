@@ -1,0 +1,64 @@
+CREATE TABLE `Department`
+(
+    `Id` Uint64, 
+    `Name` Utf8 NOT NULL,
+    `NumberOfEmployees` Uint64 NOT NULL,
+    PRIMARY KEY (`Id`)
+);
+CREATE TABLE `Products`
+(
+    `Id` Uint64,
+    `Name` Utf8 NOT NULL,
+    `Plan` Uint64 NOT NULL,
+    PRIMARY KEY (`Id`)
+);
+CREATE TABLE `Orders`
+(
+    `Id` Uint64,
+    `ZatratId` Uint64,
+    `Name` Utf8 NOT NULL,
+    `Amount` Uint64 NOT NULL,
+    PRIMARY KEY (`Id`)
+);
+
+CREATE TABLE `ProductsReport`
+(
+    `Id` Uint64 NOT NULL,
+    `Name` Utf8 NOT NULL,  
+    `DepatmentName` Utf8 NOT NULL,  
+    `QuantityProduct` Uint64 NOT NULL,
+    `PriceProducts` Uint64 NOT NULL,
+    PRIMARY KEY(`Id`)
+);
+CREATE TABLE `CustomersReport`
+(
+    `Id` Uint64 NOT NULL,
+    `DepatmentName` Utf8 NOT NULL, 
+    `Plan` Uint64 NOT NULL,
+    `Amount` Uint64 NOT NULL,
+    PRIMARY KEY(`Id`)
+);
+
+UPSERT INTO `Department` ( `Id`, `Name`, `NumberOfEmployees` )
+VALUES ( 1, 'Отдел продаж', 5),
+( 2, 'Отдел кадров', 12),
+(3, 'IT отдел', 25),
+(4, 'Отдел охраны', 4),
+(5, 'Бухгалтерия', 7);
+
+UPSERT INTO `Department` ( `Id`, `Name`, `NumberOfEmployees` )
+VALUES ( 1, 'Отдел продаж', 5),
+( 2, 'Отдел кадров', 12),
+(3, 'IT отдел', 25),
+(4, 'Отдел охраны', 4),
+(5, 'Бухгалтерия', 7);
+
+UPSERT INTO `Products` ( `Id`, `Name`, `Plan` )
+VALUES ( 1, 'Покупка нового оборудования', 12500 ),
+( 2, 'Продукты', 9800 ),
+(3, 'Бумага для принтера', 5600),
+(4, 'Канцелярия', 2200),
+(5, 'Визитки', 1100);
+
+
+
